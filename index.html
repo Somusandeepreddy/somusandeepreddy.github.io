@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Somu Sandeep Reddy - Aspiring IT Professional Portfolio">
+  <title>Sandeep Reddy | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --navy: #0f172a;
+      --border: #e2e8f0;
+      --soft: #eff6ff;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(92%, 1120px);
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    header {
+      background: linear-gradient(135deg, #0f172a, #172554);
+      color: white;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      font-size: .95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: #93c5fd; }
+
+    /* Hero */
+    .hero {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1.6fr .8fr;
+      align-items: center;
+      gap: 60px;
+      padding: 70px 0 90px;
+    }
+
+    .eyebrow {
+      color: #93c5fd;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .85rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      line-height: 1.05;
+      margin: 12px 0 12px;
+    }
+
+    .hero h2 {
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+      color: #bfdbfe;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #dbeafe;
+      font-size: 1.08rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 9px;
+      font-weight: 700;
+      background: var(--primary);
+      color: white;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #93c5fd;
+      color: white;
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,.08); }
+
+    .profile-card {
+      background: rgba(255,255,255,.97);
+      color: var(--text);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,.18);
+    }
+
+    .profile-img {
+      width: 175px;
+      height: 175px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px;
+      border: 5px solid #dbeafe;
+    }
+
+    .profile-card h3 { margin: 8px 0 18px; font-size: 1.3rem; }
+
+    .profile-info {
+      text-align: left;
+      font-size: .92rem;
+    }
+
+    .profile-info p { margin: 10px 0; }
+
+    .profile-info a {
+      color: var(--primary);
+      word-break: break-word;
+    }
+
+    /* Sections */
+    section { padding: 85px 0; }
+
+    .section-title {
+      margin-bottom: 38px;
+    }
+
+    .section-title span {
+      color: var(--primary);
+      font-size: .85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      margin: 5px 0 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 45px;
+    }
+
+    .about-text p { color: var(--muted); }
+
+    .quick-card,
+    .project-card,
+    .education-card,
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(15,23,42,.05);
+    }
+
+    .quick-card h3,
+    .project-card h3,
+    .education-card h3 {
+      margin-top: 0;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: var(--soft);
+      color: #1e3a8a;
+      border: 1px solid #dbeafe;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(15,23,42,.10);
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    .tech {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* Education */
+    .education-card p { color: var(--muted); margin: 8px 0; }
+
+    /* Contact */
+    .contact-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .contact-section .section-title span { color: #93c5fd; }
+    .contact-section .section-title h2 { color: white; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      color: var(--text);
+    }
+
+    .contact-card a {
+      color: var(--primary);
+      word-break: break-word;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 22px;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 50px; }
+
+      .profile-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 18px 0; }
+      .nav-links { gap: 12px; }
+      section { padding: 60px 0; }
+      .hero h1 { font-size: 2.7rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="home">
+    <div class="container">
+      <nav>
+        <div class="logo">SOMU SANDEEP REDDY</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Welcome to my portfolio</div>
+          <h1>Hi, I'm Somu Sandeep Reddy</h1>
+          <h2>Aspiring IT Professional</h2>
+          <p>
+            I am an aspiring IT professional with a strong interest in software
+            development and technology. As a fresher, I am eager to apply my
+            knowledge of Python, SQL, HTML, CSS, JavaScript, and MySQL to
+            real-world projects.
+          </p>
+
+          <div class="buttons">
+            <a class="btn" href="#projects">View My Work</a>
+            <a class="btn btn-outline" href="resume.pdf" target="_blank">View Resume</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <img src="profile.png" alt="Sandeep Reddy" class="profile-img">
+          <h3>Sandeep Reddy</h3>
+
+          <div class="profile-info">
+            <p><strong>Location:</strong> India</p>
+            <p><strong>Email:</strong><br>
+              <a href="mailto:sandeepreddysomu5764@gmail.com">
+                sandeepreddysomu5764@gmail.com
+              </a>
+            </p>
+            <p><strong>Phone:</strong> +91 7093245764</p>
+            <p><strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/sandeepreddysomuurl" target="_blank">
+                LinkedIn Profile
+              </a>
+            </p>
+            <p><strong>GitHub:</strong>
+              <a href="https://github.com/42130464" target="_blank">
+                GitHub Profile
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>About Me</span>
+          <h2>Who I Am</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I am a B.Tech student with a strong interest in software
+              development and information technology. I enjoy building web
+              applications, learning new technologies, solving programming
+              problems, and working on practical projects.
+            </p>
+            <p>
+              As a fresher, I am eager to apply my technical skills, gain
+              practical experience, and grow as an IT professional. My goal is
+              to continuously learn new technologies and develop useful
+              solutions to real-world problems.
+            </p>
+          </div>
+
+          <div class="quick-card">
+            <h3>Interests</h3>
+            <p>Web Development</p>
+            <p>Programming</p>
+            <p>Problem Solving</p>
+            <p>Database Management</p>
+            <p>Learning New Technologies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <span>My Skills</span>
+          <h2>Technical Skills</h2>
+        </div>
+
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Python</span>
+          <span class="skill">C (Basic)</span>
+          <span class="skill">SQL</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <span>My Work</span>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-number">PROJECT 01</div>
+            <h3>IMPLEMENTATION OF AN FPV DRONE FOR AN AUTONOMOUS SURVILLIANCE</h3>
+            <p>
+              Developed an FPV drone project focused on autonomous surveillance, involving hardware integration and flight system testing.
+              - Integrated a flight controller, FPV camera, motors, ESCs, GPS, and communication modules.
+              - Performed system testing and calibration to improve flight stability.
+              - Gained practical experience in sensor integration and autonomous contro
+            </p>
+            <p class="tech">
+              <strong>Tech:</strong> GPS module,FPV camera,motors and communication modules,microcontroller
+            </p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-number">PROJECT 02</div>
+            <h3>SOLAR TRACKING SYSTEM</h3>
+            <p>
+              Designed and developed an automated solar tracking system to maximize solar panel efficiency.
+              - Implemented sensor-based tracking using a microcontroller and DC/servo motor.
+              - Enabled solar panel alignment based on sensor input.
+              - Explored ways to improve solar energy capture.
+            </p>
+            <p class="tech">
+              <strong>Tech:</strong> microcontroller,sensors,DC motor,Solar panel,Embedded C
+            </p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-number">PROJECT 03</div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              A responsive personal portfolio website showcasing my profile,
+              skills, education, projects, and contact information.
+            </p>
+            <p class="tech">
+              <strong>Tech:</strong> HTML, CSS, JavaScript
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-title">
+          <span>Education</span>
+          <h2>Academic Background</h2>
+        </div>
+
+        <div class="education-card">
+          <h3>Bachelor of Technology</h3>
+          <p><strong>Sathyabama Institute of Science and Technology</strong></p>
+          <p>Electronics and Communication Engineering</p>
+          <p><strong>2022 - 2026</strong></p>
+          <p><strong>CGPA:</strong> 7.66 / 10</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <span>Get In Touch</span>
+        <h2>Contact Me</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a href="mailto:sandeepreddysomu5764@gmail.com">
+            sandeepreddysomu5764@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <a href="tel:+917093245764">+91 7093245764</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/sandeepreddysomuurl" target="_blank">
+            View LinkedIn Profile
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>GitHub</h3>
+          <a href="https://github.com/42130464" target="_blank">
+            View GitHub Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Sandeep Reddy. All rights reserved.
+  </footer>
+
+</body>
+</html>
